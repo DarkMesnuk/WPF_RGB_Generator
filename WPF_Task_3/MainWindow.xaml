@@ -1,0 +1,42 @@
+﻿<Window x:Class="WPF_Task_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Task_3"
+        mc:Ignorable="d"
+        Title="Color Viewer" Height="450" Width="668.667">
+    <Grid>
+        <CheckBox Content="Alpha : 0" HorizontalAlignment="Left" Height="20" Width="80" Margin="24,25,0,0" VerticalAlignment="Top" Checked="A_CheckBox_Model" x:Name="A_CheckBox" IsChecked="True"/>
+        <Slider HorizontalAlignment="Left" Height="20" Margin="132,25,0,0" VerticalAlignment="Top" Width="357" Maximum="255" x:Name="AlphaBar" SmallChange="1" ValueChanged="AlphaBar_ValueChanged" RenderTransformOrigin="0.5,0.5"/>
+
+        <CheckBox Content="Red : 0" HorizontalAlignment="Left" Height="20" Width="80" Margin="24,60,0,0" VerticalAlignment="Top" Checked="R_CheckBox_Model" x:Name="R_CheckBox" IsChecked="True"/>
+        <Slider HorizontalAlignment="Left" Height="20" Margin="132,60,0,0" VerticalAlignment="Top" Width="357" Maximum="255" x:Name="RedBar" SmallChange="1" ValueChanged="RedBar_ValueChanged"/>
+
+        <CheckBox Content="Green : 0" HorizontalAlignment="Left" Height="20" Width="80" Margin="24,95,0,0" VerticalAlignment="Top" Checked="G_CheckBox_Model" x:Name="G_CheckBox" IsChecked="True"/>
+        <Slider HorizontalAlignment="Left" Height="20" Margin="132,95,0,0" VerticalAlignment="Top" Width="357" Maximum="255" x:Name="GreenBar" SmallChange="1" ValueChanged="GreenBar_ValueChanged" RenderTransformOrigin="0.5,0.5"/>
+
+
+        <CheckBox Content="Blue : 0" HorizontalAlignment="Left" Height="20" Width="80" Margin="24,130,0,0" VerticalAlignment="Top" Checked="B_CheckBox_Model" x:Name="B_CheckBox" IsChecked="True"/>
+        <Slider HorizontalAlignment="Left" Height="20" Margin="132,130,0,0" VerticalAlignment="Top" Width="357" Maximum="255" x:Name="BlueBar" SmallChange="1" ValueChanged="BlueBar_ValueChanged"/>
+
+        <TextBox HorizontalAlignment="Left" Height="119" Margin="515,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119" x:Name="MixColor"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="24,167,0,0" VerticalAlignment="Top" Width="75" x:Name="Add_Button" Click="Add_Button_Click" />
+        <ListBox Margin="24,208,27,10" x:Name="ColorList" SelectionChanged="ColorList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Title}" />
+                        <TextBlock Margin="50, 0, 0, 0" Background="{Binding Item_Color}" Width="200"/>
+                        <Button  Margin="400, 0, 0, 0" Width="100" Content="Delete" x:Name="Delete_Button" Click="Delete_Button_Click"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Window>
